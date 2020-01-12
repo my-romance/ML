@@ -1,0 +1,71 @@
+# Motivation and Basis : MLE
+
+### Binomial Distribution
+
+연속된 *n*번의 독립적 시행에서 각 시행이 확률 p를 가질 때의  discrete probability distribution. 이러한 시행은 베르누이 시행이라 불리기도 함. $n=1$일 때 이항 분포는 베르누이 분포이다.
+
+- 예제 : 압정이 달린 동전 던지기. 
+
+    $P(H)$(=동전을 던졌을 때 head가 나올 확률)​= $\theta$
+
+    $P(T)$(=동전을 던졌을 때 tail이 나올 확률)​= 1-$\theta$
+
+    $P(HHTHT) = \theta^3(1-\theta)^2$
+
+ - $P(H)=\theta, a_H$ = $n$번 시행중에서 결과로 head가 나올 확률, $a_T$ = n번 시행중에서 결과로 tail이나올 확률, $D$는 관찰된 결과(sequence data)라고 할 때, 
+   $P(D|\theta) = \theta^{a_H}(1-\theta)^{a_T}$
+
+ - 일반적으로, 확률변수 $K$가 매개변수 $n$과 $p$를 가지는 이항분포를 따른다면, $K \sim B(n,p)$라고 쓴다. $n$번 시행중에 $k$번 성공할 확률은 확률 질량 함수로 주어진다.
+
+   $P(K=k) = f(k;n,p) = C(n,k)p^k(1-p)^{n-k}$
+
+   - $C(n,k)$는 순서를 제거해주기 위해 사용됨. 이항 계수라고도 한다.
+
+### Maximum likelihood Estimation
+
+최대우도추정(MLE)이란 모수가 미지의 $\theta$인 확률분포에서 뽑은 표본(관측지)$x$들을 바탕으로 $\theta$를 추정하는 방법. 관찰된 $x$의 확률을 가장 최대화하는 $\theta$를 선택하는 것이다.
+$$
+\hat{\theta} = argmax_\theta P(D|\theta)
+$$
+
+### MLE Calculation
+
+$$
+\hat{\theta} = argmax_\theta P(D|\theta) = argmax_\theta \theta^{a_H}(1-\theta)^{a_T}
+$$
+
+위 식의 결과는 아래 식의 결과와 같기 때문에, 편의상 아래식을 사용한다.
+$$
+\hat{\theta} = argmax_\theta P(D|\theta) = argmax_\theta ln\{\theta^{a_H}(1-\theta)^{a_T}\} \\
+=armax_\theta\{a_Hln\theta+a_Tln(1-\theta)\}
+$$
+MLE식을 미분하여 그 값이 0이 되는 $\theta$를 찾는 것은 관찰된 $x$의 확률을 가장 최대화하는 $\theta$를 찾는 것과 같다.
+
+Binomial Distribution에서의  MLE 계산
+
+- $\frac{d}{d\theta}(a_H ln\theta + a_T ln(1-\theta)) = 0$
+- $\frac{a_H}{\theta} - \frac{a_T}{1-\theta} = 0$ 
+- $\theta = \frac{a_H}{a_T+a_H}$
+- When $\theta$ is $\frac{a_H}{a_T+a_H}$, the $\theta$ becomes the best candidate from the MLE perspective
+
+- $\hat{\theta} = \frac{a_H}{a_H+a_T}$
+
+### Simple Error Bound
+
+$\varepsilon$을 error bound, $\hat{\theta}$는 예측된 parameter, $\theta^*$는 true parameter 라고 할 때 
+
+$P(|\hat{\theta}-\theta^*|\ge\varepsilon) \le 2e^{-2N \varepsilon^2}$ : "예측된 parameter $\hat{\theta}$와 true parameter  $\theta^*$의 차이가 특정 error bound $\varepsilon$보다 큰 확률은 $2e^{-2N \varepsilon^2}$보단 작다"
+
+위 수식을 통해  $\varepsilon, N$이 커질수록 $\hat{\theta}$와  $\theta^* $간의 차이가 날 확률은 적어진다는 것을 알 수 있다.
+
+
+
+출처 : 문일철 교수님의 인공지능 및 기계학습 개론 1
+
+​         [https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%95%AD_%EB%B6%84%ED%8F%AC](https://ko.wikipedia.org/wiki/이항_분포)
+
+​          https://ratsgo.github.io/statistics/2017/09/23/MLE/
+​          
+
+
+
