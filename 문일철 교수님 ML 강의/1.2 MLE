@@ -60,7 +60,7 @@ $P(|\hat{\theta}-\theta^*|\ge\varepsilon) \le 2e^{-2N \varepsilon^2}$ : "예측�
 
 
 
-출처 : 문일철 교수님의 인공지능 및 기계학습 개론 1
+출처 : 문일철 교수님의 인공지능 및 기계학습 개론 1(https://www.edwith.org/machinelearning1_17)
 
 ​         [https://ko.wikipedia.org/wiki/%EC%9D%B4%ED%95%AD_%EB%B6%84%ED%8F%AC](https://ko.wikipedia.org/wiki/이항_분포)
 
