@@ -20,11 +20,12 @@
 
 ### 초기값 설정
 
- 처음에는 모수 추정값인 동전 A의 앞면이 나올 확률 
-$ \hat{\theta}^{0}_{A}$
-과 동전 B의 앞면이 나올 확률
-$\hat{\theta}^{0}_{B}$
-에 랜덤으로 확률값을 넣어준다.
+ 처음에는 모수 추정값인 동전 A의 앞면이 나올 확률
+ $\hat{\theta}^{0}_{A}$과
+ 
+ 동전 B의 앞면이 나올 확률
+ $\hat{\theta}^{0}_{B}$
+ 에 랜덤으로 확률값을 넣어준다.
 
 $$
 \hat{\theta}^{0}_{A} = 0.6 \\
@@ -39,21 +40,25 @@ Hidden variable의 responsibility를 계산하는 단계
 주어진 추정값(처음은 랜덤 한 값)을 사용하여 각 차수의 각 동전에 대해 앞/뒷면이 나올 확률을 구해본다. 1번 차수에서는 HTTTHHTHTH로 된 sequence (H=앞면, T=뒷면)가 데이터로 주어져 있으며 각 동전의 추정 값을 사용하여 이 sequence가 나올 확률을 구해본다.
 
 - 동전 A를 사용했을 때 해당 sequence가 관찰될 확률 a
+
   $$
   a = 0.6^{5} * 0.4^{5} = 7.96e−05
   $$
 
 - 동전 B를 사용했을 때 해당 sequence가 관찰될 확률 b
+
   $$
   b = 0.5^{5} * 0.5^{5} = 9.76e−05
   $$
 
 - 1번 차수에서 동전 A 가 선택되었을 확률
+
   $$
   a / (a+b) = 0.45
   $$
 
 - 1번 차수에서 동전 B 가 선택되었을 확률
+
   $$
   b / (a+b) = 0.55
   $$
@@ -65,7 +70,7 @@ Hidden variable의 responsibility를 계산하는 단계
 
 상태를 모르는 경우 (State Unknown)이므로, 모수 추정값을 확신할 수 없기에 E-step에서 계산한 responsibility를 사용하여 확률을 계산해준다.
 
-<img src="./pic/em2.png" style="zoom:70%;"/>
+<img src="./pic/em2.png" style="zoom:60%;"/>
 
 이후 E-step, M-step을 차례로 반복하면 local maximum으로 답을 찾을 수 있다.
 
