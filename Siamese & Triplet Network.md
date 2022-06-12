@@ -1,14 +1,16 @@
 # Siamese/Triplet Network
 
+sbert 논문을 읽으면서 개념정리를 위해 작성.
+
 ## Siamese Network
 
 ### Siamese Network
 
 A **Siamese neural network** (sometimes called a **twin neural network**) is an artificial neural network that uses **the same weights** while working in tandem on two different input vectors to compute comparable output vectors.
 
-즉 siamese network는 구조가 같으며, weight를 공유한다. 어차피 weight를 공유하기에, 한 네트워크락 봐도 무방한다.
+즉 siamese network는 구조가 같으며, weight를 공유한다. 어차피 weight를 공유하기에, 한 네트워크라 봐도 무방한다.
 
-![](./pic/siamese_nn.png)
+<img src="./pic/siamese_nn.png" style="zoom:50%;" />
 
 ### 학습 방법
 
@@ -16,6 +18,14 @@ A **Siamese neural network** (sometimes called a **twin neural network**) is an 
 2. 각 입력에 대한 임베딩 값(Embeddig1, Embedding2)을 얻음.
 3. 두 임베딩 사이의 거리 계산.  L1 norm, L2 norm 등의 방법을 사용.
 4. 두 입력이 같은 클래스에 속한다면 거기를 가깝게, 다른 클래스에 속한다면 거리를 멀게 Siamese neural network를 학습.
+
+### 장점
+
+1. 샴 네트워크는 One-shot learning을 위해 개발됨. 즉, 소량의 데이터만으로 학습이 가능하다는 장점을 지님
+2. Siamese neural network는 결과적으로 입력 데이터를 임베딩으로 변환시킴. 즉, 변환되는 임베딩의 차원 수로 feature extraction (또는 reduction) 하는 네트워크로 볼 수 있음
+   <img src="./pic/siamese_nn_plus.png" style="zoom:50%;" />
+
+​		
 
 
 
