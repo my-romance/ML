@@ -81,7 +81,7 @@ Training classifiers involve estimating f: X→ Y, or P(Y|X)
 - 딥러닝은 데이터의 분포를 모사하거나, 벡터 간 변환에 뛰어난 성능을 지니기 때문에 generative model에 딥러닝 기법을 이용
 - Deep Generative Mode을 도식화한 그림은 아래와 같다.
   
-    ![Untitled](/Users/aiden/Documents/sangsang/ML/pic/deep_generative.png)
+    ![Untitled](./pic/deep_generative.png)
     
 
 
